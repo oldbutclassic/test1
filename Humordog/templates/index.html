@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>유머독</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="유머독 로고">
+            <h1>유머독</h1>
+        </div>
+        <nav>
+            {% for category in categories %}
+            <a href="{{ url_for('category_page', category_id=category.id) }}">{{ category.name }}</a>
+            {% endfor %}
+        </nav>
+        <div class="search-bar">
+            <form action="{{ url_for('index') }}" method="get">
+                <input type="text" name="q" placeholder="검색어를 입력하세요">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        {% if main_post %}
+        <section class="main-post">
+            <a href="{{ url_for('post_detail', post_id=main_post.id) }}">
+                {% if main_post.thumbnail %}
+                <img src="{{ url_for('static', filename=main_post.thumbnail) }}" alt="{{ main_post.title }}">
+                {% endif %}
+                <h2>{{ main_post.title }}</h2>
+            </a>
+        </section>
+        {% endif %}
+        <section class="post-list">
+            <h3>오늘의 새로운 글</h3>
+            <ul>
+                {% for post in posts %}
+                <li>
+                    <a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 유머독</p>
+    </footer>
+</body>
+
+</html>

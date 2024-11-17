@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>새 글 작성 - 유머독</title>
+</head>
+<body>
+    <h1>새 글 작성</h1>
+    <form action="{{ url_for('new_post') }}" method="post" enctype="multipart/form-data">
+        <label>제목:</label>
+        <input type="text" name="title" required><br>
+        <label>내용:</label>
+        <textarea name="content" rows="10" cols="30" required></textarea><br>
+        <label>카테고리:</label>
+        <select name="category">
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select><br>
+        <label>썸네일 이미지:</label>
+        <input type="file" name="thumbnail"><br>
+        <button type="submit">게시하기</button>
+    </form>
+</body>
+</html>

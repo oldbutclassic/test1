@@ -1,0 +1,49 @@
+/* 기본적인 스타일만 적용, 필요에 따라 수정하세요. */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #f8f8f8;
+    padding: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.search-bar {
+    margin-top: 10px;
+}
+
+.main-post, .post-list {
+    padding: 20px;
+}
+
+.main-post img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin-bottom: 10px;
+}
